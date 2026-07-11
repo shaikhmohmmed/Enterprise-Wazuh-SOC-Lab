@@ -1,0 +1,63 @@
+# Incident Report 004 – User Account Monitoring
+
+## Incident Summary
+
+Wazuh detected multiple user account management events including account creation, account modification, group membership changes, and account deletion.
+
+---
+
+## Objective
+
+To verify Wazuh's ability to monitor Windows account management activities.
+
+---
+
+## Alerts Observed
+
+- User account enabled or created
+- User account changed
+- User account disabled or deleted
+- Users Group Changed
+- Administrators Group Changed
+
+---
+
+## Investigation
+
+Windows generated account management events whenever user accounts were modified.
+
+Wazuh collected these logs and generated corresponding security alerts.
+
+Monitoring these events is essential for detecting privilege escalation or unauthorized account creation.
+
+---
+
+## MITRE ATT&CK
+
+T1136 – Create Account
+
+T1098 – Account Manipulation
+
+---
+
+## Security Impact
+
+Unauthorized account creation may indicate:
+
+- Persistence
+- Insider threats
+- Privilege escalation
+
+---
+
+## Recommendations
+
+- Monitor administrator account creation.
+- Review group membership changes.
+- Audit account lifecycle regularly.
+
+---
+
+## Outcome
+
+Successfully validated user account monitoring using Wazuh.
