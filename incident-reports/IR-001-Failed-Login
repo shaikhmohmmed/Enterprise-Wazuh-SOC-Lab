@@ -1,0 +1,89 @@
+# Incident Report 001 – Failed Login Detection
+
+## Incident Summary
+
+Multiple failed login attempts were detected on the Windows 10 endpoint by the Wazuh SIEM. The alerts were generated after repeated authentication failures using incorrect credentials.
+
+---
+
+## Objective
+
+To verify that Wazuh detects and logs failed Windows authentication attempts.
+
+---
+
+## Lab Environment
+
+| Component | Details |
+|----------|---------|
+| SIEM | Wazuh 4.14.6 |
+| Manager | Ubuntu Wazuh OVA |
+| Endpoint | Windows 10 |
+| Virtualization | Oracle VirtualBox |
+
+---
+
+## Procedure
+
+1. Locked the Windows 10 machine.
+2. Entered an incorrect password multiple times.
+3. Waited for Wazuh to collect the Windows Security Event Logs.
+4. Investigated the generated alerts in the Wazuh Dashboard.
+
+---
+
+## Alert Details
+
+Rule ID: 60122
+
+Severity: 5 (Medium)
+
+Description:
+
+Logon Failure – Unknown user or bad password
+
+---
+
+## Investigation
+
+The Windows endpoint generated multiple failed authentication events due to invalid credentials.
+
+Wazuh successfully collected the Windows Security logs and created authentication alerts indicating unsuccessful logon attempts.
+
+No successful login occurred immediately after the failures.
+
+---
+
+## MITRE ATT&CK Mapping
+
+Technique:
+T1110 – Brute Force
+
+Tactic:
+Credential Access
+
+---
+
+## Security Impact
+
+Repeated failed login attempts may indicate:
+
+- Password guessing
+- Brute-force attack
+- Unauthorized access attempts
+- User authentication mistakes
+
+---
+
+## Recommendations
+
+- Enable Account Lockout Policy
+- Monitor repeated failed logins
+- Enable Multi-Factor Authentication (MFA)
+- Investigate the source of repeated failures
+
+---
+
+## Outcome
+
+Successfully validated Wazuh's ability to detect failed authentication attempts and generate actionable alerts.
