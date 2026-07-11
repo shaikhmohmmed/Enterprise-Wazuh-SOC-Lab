@@ -1,0 +1,81 @@
+# Incident Report 003 – File Integrity Monitoring
+
+## Incident Summary
+
+Wazuh File Integrity Monitoring (FIM) detected file creation, deletion, and integrity checksum changes on the monitored Windows endpoint.
+
+---
+
+## Objective
+
+To validate Wazuh's File Integrity Monitoring capabilities.
+
+---
+
+## Procedure
+
+1. Created a test file.
+2. Modified the file.
+3. Deleted the file.
+4. Observed Wazuh alerts.
+
+---
+
+## Alerts Observed
+
+- File added to the system
+- File deleted
+- Integrity checksum changed
+
+Rule IDs:
+
+550
+
+553
+
+554
+
+---
+
+## Investigation
+
+Wazuh detected every modification performed on monitored files.
+
+Checksum changes confirmed that file contents had been altered.
+
+Deletion events were immediately recorded.
+
+---
+
+## MITRE ATT&CK
+
+Related Technique:
+
+T1070 – Indicator Removal on Host
+
+(Note: In this lab these actions were intentional for testing purposes.)
+
+---
+
+## Security Impact
+
+Unexpected file modifications could indicate:
+
+- Malware activity
+- Ransomware
+- Unauthorized access
+- Data tampering
+
+---
+
+## Recommendations
+
+- Monitor critical system directories.
+- Investigate unexpected file modifications.
+- Enable regular integrity monitoring.
+
+---
+
+## Outcome
+
+Successfully validated Wazuh File Integrity Monitoring.
