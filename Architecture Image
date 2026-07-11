@@ -1,0 +1,15 @@
+        VirtualBox
+
+        Ubuntu Server
+     +----------------+
+     | Wazuh Manager  |
+     | Dashboard      |
+     | Indexer        |
+     +----------------+
+              │
+     Wazuh Agent
+              │
+     +----------------+
+     | Windows 10     |
+     | Wazuh Agent    |
+     +----------------+
